@@ -10,23 +10,35 @@ public class Exercise2 {
 		Scanner sc = new Scanner(System.in);
 		while (true) {
 
-			int n = sc.nextInt(), suma;
+			int n = sc.nextInt(), suma = 0;
 			int a[] = new int[n];
 
-			for (int i = 0; i < n; i++) {
-				n = sc.nextInt();
-				a[i] = n;
+			for (int i = 0; i < n; i++) {			
+				a[i] = sc.nextInt();
 			}
 
 			suma = sc.nextInt();
 			suma = suma - nuevSuma(a);
 			
 			conversionCero(a);
-			System.out.println(obj.esSubconjuntoSumaExt(a, 0, suma));
+			System.out.println(obj.esSubconjuntoSumaExt(a, suma));
 		}
 	}
+	public boolean esSubconjuntoSumaExt(int conjunto[], int suma) {
+		// Casos base
+		if (suma == 0)
+			return true;
+		/*if (n == conjunto.length)
+			return false;
+		/* verificamos si conseguimos la suma por alguna de las siguientes formas:
+		(a) incluyendo el primer elemento
+		(b) excluyendo el primer elemento esSubconjuntoSumaExt2(conjunto, 0, suma - conjunto[0]) || */
+		return esSubconjuntoSumaExt2(conjunto, 0, suma );
+		
+		
+	}
 	
-	public boolean esSubconjuntoSumaExt(int conjunto[], int n, int suma) {
+	public boolean esSubconjuntoSumaExt2(int conjunto[], int n, int suma) {
 		// Casos base
 		if (suma == 0)
 			return true;
@@ -35,7 +47,7 @@ public class Exercise2 {
 		/* verificamos si conseguimos la suma por alguna de las siguientes formas:
 		(a) incluyendo el primer elemento
 		(b) excluyendo el primer elemento */
-		return esSubconjuntoSumaExt(conjunto, n + 1, suma - conjunto[n]) || esSubconjuntoSumaExt(conjunto, n + 1, suma );
+		return esSubconjuntoSumaExt2(conjunto, n + 1, suma - conjunto[n]) || esSubconjuntoSumaExt2(conjunto, n + 1, suma );
 		
 		
 	}
