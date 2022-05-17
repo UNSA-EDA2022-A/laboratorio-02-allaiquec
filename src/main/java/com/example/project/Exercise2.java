@@ -1,3 +1,4 @@
+package com.example.project;
 import java.util.Scanner;
 
 public class Exercise2 {
@@ -30,7 +31,7 @@ public class Exercise2 {
 			return false;
 		/* verificamos si conseguimos la suma por alguna de las siguientes formas:
 		(a) incluyendo el primer elemento
-		(b) excluyendo el primer elemento esSubconjuntoSumaExt2(conjunto, 0, suma - conjunto[0]) || */
+		(b) excluyendo el primer elemento */
 		return esSubconjuntoSumaExt2(conjunto, 0, suma );
 		
 		
@@ -40,11 +41,10 @@ public class Exercise2 {
 		// Casos base
 		if (suma == 0)
 			return true;
+		
 		if (n == conjunto.length)
 			return false;
-		/* verificamos si conseguimos la suma por alguna de las siguientes formas:
-		(a) incluyendo el primer elemento
-		(b) excluyendo el primer elemento */
+		
 		return esSubconjuntoSumaExt2(conjunto, n + 1, suma - conjunto[n]) || esSubconjuntoSumaExt2(conjunto, n + 1, suma );
 		
 		
@@ -60,18 +60,6 @@ public class Exercise2 {
 		}
 		return sum;
 		
-		/*int sum = 0;
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] % 7 == 0) {
-				if(i != arr.length-1) {
-					if(arr[i+1] != 1) {
-						sum = sum +  arr[i];
-					}
-				}
-			}
-		
-		}
-		return sum;*/
 	}
 	
 	//Convierte los numeros 7 a ceros
