@@ -19,13 +19,59 @@ public class Exercise2 {
 			}
 
 			suma = sc.nextInt();
-
-			System.out.println(obj.esSubconjuntoSumaExt(a, suma));
+			suma = suma - nuevSuma(a);
+			
+			conversionCero(a);
+			System.out.println(obj.esSubconjuntoSumaExt(a, 0, suma));
 		}
 	}
-
-	public boolean esSubconjuntoSumaExt(int a[], int suma) {
-
-		return false;
+	
+	public boolean esSubconjuntoSumaExt(int conjunto[], int n, int suma) {
+		// Casos base
+		if (suma == 0)
+			return true;
+		if (n == conjunto.length)
+			return false;
+		/* verificamos si conseguimos la suma por alguna de las siguientes formas:
+		(a) incluyendo el primer elemento
+		(b) excluyendo el primer elemento */
+		return esSubconjuntoSumaExt(conjunto, n + 1, suma - conjunto[n]) || esSubconjuntoSumaExt(conjunto, n + 1, suma );
+		
+		
 	}
+	//Si encontramos un numero 1, tenemos que fijarnos que el de adelante sea multiplo de 7
+	public static int nuevSuma(int[] arr) {
+		int sum = 0;
+		for (int i = 1; i < arr.length; i++) {
+			if(arr[i] != 1 && arr[i-1]%7 == 0) {
+				sum =sum + arr[i-1];
+			}
+			
+		}
+		return sum;
+		
+		/*int sum = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] % 7 == 0) {
+				if(i != arr.length-1) {
+					if(arr[i+1] != 1) {
+						sum = sum +  arr[i];
+					}
+				}
+			}
+		
+		}
+		return sum;*/
+	}
+	
+	//Convierte los numeros 7 a ceros
+	public static int[] conversionCero(int[] arr) {	
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] % 7 == 0) {
+				arr[i] = 0;
+			}		
+		}
+		return arr;
+	}
+	
 }
