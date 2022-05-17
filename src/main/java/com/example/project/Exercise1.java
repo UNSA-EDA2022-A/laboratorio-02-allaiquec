@@ -16,8 +16,7 @@ public class Exercise1 {
 	
 	//Si el numero es 1, pues defrente es cuadrado perfecto
 	public boolean esCuadradoPerfecto(int numero) {
-		if(numero == 0)
-			return false;
+		
 		
 		if(numero == 1) 
 			return true;
