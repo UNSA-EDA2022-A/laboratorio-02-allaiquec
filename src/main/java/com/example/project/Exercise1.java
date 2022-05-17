@@ -1,5 +1,4 @@
 package com.example.project;
-
 import java.util.Scanner;
 
 public class Exercise1 {
@@ -16,22 +15,23 @@ public class Exercise1 {
 	
 	//Si el numero es 1, pues defrente es cuadrado perfecto
 	public boolean esCuadradoPerfecto(int numero) {
-		
-		
-		if(numero == 1) 
+		if(numero == 0){
+			return false;
+		}
+		if(numero == 1){ 
 			return true;
-		else 
+		}else{ 
 			return esCuadradoPerfecto(numero,1); 
-		
+		}
 	}
 	
 	public boolean esCuadradoPerfecto(int numero,int i) {
-		if(numero ==i)     //Si recorrimos todos los numeros, y aun no encontramos alguno que cumpliera sera false
+		if(numero ==i){     //Si recorrimos todos los numeros, y aun no encontramos alguno que cumpliera sera false
 			return false;
-		
-		if ((numero % i == 0) && (numero / i == i))  // Veremos que si cumple con la siguientes condiciones sera un cuadrado perfecto
-             return true;
-         
+		}
+		if ((numero % i == 0) && (numero / i == i)){  // Veremos que si cumple con la siguientes condiciones sera un cuadrado perfecto
+             		return true;
+		}
 		return esCuadradoPerfecto(numero,i+1);  //Incrementamos al i
 	}
 }
